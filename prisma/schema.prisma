@@ -12,3 +12,47 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum Status {
+  AVAILABLE
+  ADOPTED
+}
+
+enum Size {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+enum Energy_level {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Pet {
+  id           String       @id @default(uuid())
+  name         String
+  age          Int
+  size         Size
+  energy_level Energy_level
+  description  String
+  city         String
+  status       Status
+  species      String
+  includes_at  DateTime     @default(now())
+  ord          Org          @relation(fields: [orgId], references: [id])
+  orgId        String
+}
+
+model Org {
+  id             String @id @default(uuid())
+  name           String
+  email          String
+  password       String
+  city           String
+  state          String
+  whatsApp_phone String
+  address        String
+  pet            Pet[]
+}
