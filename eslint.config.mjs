@@ -29,7 +29,6 @@ export default defineConfig([
       'curly': ['error', 'all'],
       'comma-dangle': ['error', 'always-multiline'],
       'arrow-parens': ['error', 'always'],
-      'max-len': ['error', { code: 80, tabWidth: 2, ignoreUrls: true }],
       'space-before-function-paren': ['error', 'never'],
     },
   },
