@@ -41,7 +41,7 @@ model Pet {
   status       Status
   species      String
   includes_at  DateTime     @default(now())
-  ord          Org          @relation(fields: [orgId], references: [id])
+  org          Org          @relation(fields: [orgId], references: [id])
   orgId        String
 }
 
